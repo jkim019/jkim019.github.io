@@ -81,6 +81,65 @@
     </div>
 
 
+    <div id="filter">
+
+      <select name="genres">
+        <!-- use the script to collect the total amount of genres -->
+        <script>
+        $.get("music.json", function( data ) {
+
+          // PURPOSE: This function checks a list of genres if an inputted genre
+          //          is already in the list.
+          // RETURNS: If the inputted genre is in the list of genres (ie we have another
+          //          instance of the same genre) return true. else, return false
+          function search_genre(genre, all_genres)
+          {
+            for (var i = 0; i<genres.length; i++)
+            {
+              if (song.genre[i] == all_genres)
+              {
+                // found the genre in the list of established genres
+                return true;
+              }
+
+            }
+            return false;
+          }
+
+          const all_genres = [];
+
+          data.forEach(function(song) {
+            // this var keeps track if the newly read genre is already in the list of genres
+            for (var i = 0; i<song.genre.length; i++)
+            {
+              if(search_genre(song.genre[i], all_genres) == false)
+              {
+                all_genres.push(song.genre[i]);
+              }
+            }
+          });
+
+          // for all genres, list them as an option
+          for (var i = 0; i<all_genres.length; i++)
+          {
+            // write into select tag
+            $('select[name="genres"]').html('<option value="'+all_genres[i]+'">'+all_genres[i]+"</option>")
+          }
+
+
+
+        });
+
+        </script>
+
+
+      </select>
+
+
+
+    </div>
+
+
   </body>
 
 
