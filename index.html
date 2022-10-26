@@ -154,7 +154,11 @@
                 var is_genre = false;
                 for (var i = 0; i<song.genre.length; i++)
                 {
-                  is_genre = isThisGenre(to_display,song.genre[i]);
+                  if (isThisGenre(to_display,song.genre[i]))
+                  {
+                    is_genre = true;
+                    break;
+                  }
                 }
 
                 if (is_genre == false)
