@@ -54,7 +54,15 @@
             pretty_str+="<li>Artist: " + song.artist;
             pretty_str+="<li>Title: " + song.year;
             // printing out all Genres
-            pretty_str+="<li>Genre: "+= song.genre;
+            pretty_str+="<li>Genre: ";
+            for (var i = 0; i<song.genre.length; i++)
+            {
+
+
+              pretty_str += song.genre[i]+" ";
+
+              }
+            }
             pretty_str += "</ul>";
           });
           $('p[name="data_print_clean"]').html(pretty_str);
