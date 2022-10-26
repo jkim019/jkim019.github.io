@@ -50,7 +50,8 @@
         function( data ) {
           var pretty_str = "";
           data.forEach(function(song) {
-            pretty_str+= song.title +"<ul>";
+
+            pretty_str+= song.title +"<ul name=" + "'" + song.title + "'>";
             pretty_str+="<li>Artist: " + song.artist;
             pretty_str+="<li>Title: " + song.year;
             // printing out all Genres
@@ -123,9 +124,39 @@
         });
 
         </script>
-
-
       </select>
+
+
+      <!-- Have a new script which will show only the titles that are specified by the select -->
+      <script>
+        $('select[]').change(function() {
+          // PURPOSE: takes a singular genre, goes through all songs displayed above
+          //          and checks if the inputted genre is amongst the genres in the
+          //          song.
+          // RETURNS: return true if found, false otherwise
+          function isThisGenre(genre,song)
+          {
+            for (var i = 0; i<song.genre.length; i++)
+            {
+              if (genre == song.genre[i])
+              {
+                return true;
+              }
+            }
+            return false;
+          };
+
+          var to_display = $(this).text();
+
+          // go to every song above and hide and show depending on its Genres
+          var all_songs = $('ul');
+          for (var i = 0; i<all_songs.length; i++)
+          {
+            console.log(all_songs[i])
+          }
+
+        });
+      </script>
 
 
 
