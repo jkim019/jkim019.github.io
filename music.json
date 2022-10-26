@@ -67,7 +67,7 @@
     "title":"Windy Summer",
     "artist":"Anri",
     "year":"1983",
-    "genre":["J-Pop", "City Pop"]
+    "genre":["City Pop","J-Pop"]
   },
 
   {
@@ -81,6 +81,6 @@
     "title":"And July",
     "artist":"Heize",
     "year":"2016",
-    "genre":["Hip-Hop", "Rap", "K-Pop"]
+    "genre":["K-Pop", "Hip-Hop", "Rap"]
   }
 ]
