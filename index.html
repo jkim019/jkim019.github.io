@@ -54,23 +54,7 @@
             pretty_str+="<li>Artist: " + song.artist;
             pretty_str+="<li>Title: " + song.year;
             // printing out all Genres
-            pretty_str+="<li>Genre: ";
-            for (var i = 0; i<song.genre.length; i++)
-            {
-
-
-              pretty_str += song.genre[i];
-
-              if (i != song.genre.length)
-              {
-                //last elem
-                if (i > 0) {
-                  // multiple elements
-                  pretty_str += ", ";
-                }
-
-              }
-            }
+            pretty_str+="<li>Genre: "+= song.genre;
             pretty_str += "</ul>";
           });
           $('p[name="data_print_clean"]').html(pretty_str);
@@ -114,7 +98,7 @@
             {
               if(search_genre(song.genre[i], all_genres) == false)
               {
-                console.log("New Genre Found" + song.genre[i])
+                console.log("New Genre Found: " + song.genre[i])
                 all_genres.push(song.genre[i]);
               }
             }
@@ -125,7 +109,7 @@
           for (var i = 0; i<all_genres.length; i++)
           {
             // write into select tag
-            al_options += '<option value="'+all_genres[i]+'">'+all_genres[i]+"</option>";
+            all_options += '<option value="'+all_genres[i]+'">'+all_genres[i]+"</option>";
           }
 
           $('select[name="genres"]').html(all_options);
