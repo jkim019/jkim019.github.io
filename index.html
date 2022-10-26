@@ -125,6 +125,8 @@
           </script>
         </select>
         <input type="button" value="Filter">
+        <br>
+        <p name="filter"></p>
       </form>
 
 
@@ -147,6 +149,10 @@
           var to_display = $('select').val();
           console.log("We are displaying all "+to_display);
 
+          var songs_filtered = "";
+          // print out song below
+          songs_filtered+="Songs with "+to_display+" are:"
+
           // go to every song above and hide and show depending on its Genres
           $.get("music.json",
             function( data ) {
@@ -165,13 +171,25 @@
                 {
                   // hide the ul associated with the song title
                   console.log(song.title+" IS NOT "+to_display)
-                  $('ul[name="+song.title+"]').hide();
+
                 } else {
-                  $('ul[name="+song.title+"]').show();
+
+                  songs_filtered+= song.title +"<ul name=" + "'" + song.title + "'>";
+                  songs_filtered+="<li>Artist: " + song.artist;
+                  songs_filtered+="<li>Title: " + song.year;
+                  // printing out all Genres
+                  songs_filtered+="<li>Genre: ";
+                  for (var i = 0; i<song.genre.length; i++)
+                  {
+                    songs_filtered += song.genre[i]+" ";
+                  }
+                  songs_filtered += "</ul>";
+
                 }
               });
 
           });
+          $('p[name="filter"]').html(songs_filtered);
 
 
 
