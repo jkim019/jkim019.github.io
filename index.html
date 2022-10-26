@@ -134,14 +134,11 @@
           //          and checks if the inputted genre is amongst the genres in the
           //          song.
           // RETURNS: return true if found, false otherwise
-          function isThisGenre(genre,song)
+          function isThisGenre(this_genre,song_genre)
           {
-            for (var i = 0; i<song.genre.length; i++)
+            if (this_genre == song_genre)
             {
-              if (genre == song.genre[i])
-              {
-                return true;
-              }
+              return true;
             }
             return false;
           };
@@ -149,11 +146,34 @@
           var to_display = $(this).text();
 
           // go to every song above and hide and show depending on its Genres
-          var all_songs = $('ul');
-          for (var i = 0; i<all_songs.length; i++)
-          {
-            console.log(all_songs[i])
-          }
+          $.get("music.json",
+            function( data ) {
+              data.forEach(function(song) {
+                var is_genre = false;
+                for (var i = 0; i<song.genre.length; i++)
+                {
+                  is_genre = isThisGenre(to_display,song.genre[i]);
+                }
+
+                if (is_genre == false)
+                {
+                  // hide the ul associated with the song title
+                  $('ul[name="+song.title+"]').hide();
+                } else {
+                  $('ul[name="+song.title+"]').show();
+                }
+              });
+
+          });
+
+
+
+          // var all_songs = $('ul');
+          // for (var i = 0; i<all_songs.length; i++)
+          // {
+          //   console.log(all_songs[i])
+          // }
+          // OLD CODE - Takeaway is that we can find the songs by their UL element and hide/show them using jquery
 
         });
       </script>
