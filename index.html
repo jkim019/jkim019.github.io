@@ -71,6 +71,7 @@
 
 
     <div id="filter">
+      Try Fitlering Songs Here:
       <form id="genre">
         <select name="genres">
           <!-- use the script to collect the total amount of genres -->
@@ -144,6 +145,7 @@
           };
 
           var to_display = $(this).text();
+          console.log("We are displaying all "+to_display);
 
           // go to every song above and hide and show depending on its Genres
           $.get("music.json",
@@ -158,6 +160,7 @@
                 if (is_genre == false)
                 {
                   // hide the ul associated with the song title
+                  console.log(song.title+" IS NOT "+to_display)
                   $('ul[name="+song.title+"]').hide();
                 } else {
                   $('ul[name="+song.title+"]').show();
