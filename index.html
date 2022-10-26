@@ -114,17 +114,21 @@
             {
               if(search_genre(song.genre[i], all_genres) == false)
               {
+                console.log("New Genre Found" + song.genre[i])
                 all_genres.push(song.genre[i]);
               }
             }
           });
 
           // for all genres, list them as an option
+          var all_options = "";
           for (var i = 0; i<all_genres.length; i++)
           {
             // write into select tag
-            $('select[name="genres"]').html('<option value="'+all_genres[i]+'">'+all_genres[i]+"</option>")
+            al_options += '<option value="'+all_genres[i]+'">'+all_genres[i]+"</option>");
           }
+
+          $('select[name="genres"]').html(all_options);
 
 
 
