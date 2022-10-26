@@ -1,0 +1,86 @@
+
+[
+  {
+    "title":"La Vie En Rose",
+    "artist":"Louis Armstrong",
+    "year":"1950",
+    "genre":["Jazz", "Traditional Pop"]
+  },
+
+  {
+    "title":"What a Wonderful World",
+    "artist":"Louis Armstrong",
+    "year":"1967",
+    "genre":["Jazz", "Traditional Pop"]
+  },
+
+  {
+    "title":"B Minor Waltz (For Elliane)",
+    "artist":"Bill Evans Trio",
+    "year":"1977",
+    "genre":["Jazz"]
+  },
+
+  {
+    "title":"You Must Believe in Spring",
+    "artist":"Bill Evans Trio",
+    "year":"1981",
+    "genre":["Jazz"]
+  },
+
+  {
+    "title":"(They Long to Be) Close To You",
+    "artist":"The Carpenters",
+    "year":"1970",
+    "genre":["Pop"]
+  },
+
+  {
+    "title":"Top Of The World",
+    "artist":"The Carpenters",
+    "year":"1973",
+    "genre":["Pop"]
+  },
+
+  {
+    "title":"Gunjyo",
+    "artist":"Yoasobi",
+    "year":"2020",
+    "genre":["J-Pop"]
+  },
+
+  {
+    "title":"Into The Night",
+    "artist":"Yoasobi",
+    "year":"2019",
+    "genre":["J-Pop"]
+  },
+
+  {
+    "title":"Monster",
+    "artist":"Yoasobi",
+    "year":"2021",
+    "genre":["J-Pop"]
+  },
+
+  {
+    "title":"Windy Summer",
+    "artist":"Anri",
+    "year":"1983",
+    "genre":["J-Pop, City Pop"]
+  },
+
+  {
+    "title":"Rudolph The Red-Nosed Reindeer",
+    "artist":"Ella Fitzgerald",
+    "year":"1960",
+    "genre":["Jazz"]
+  },
+
+  {
+    "title":"And July",
+    "artist":"Heize",
+    "year":"2016",
+    "genre":["Hip-Hop, Rap, K-Pop"]
+  }
+]

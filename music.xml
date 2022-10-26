@@ -1,0 +1,96 @@
+<!-- Code by: Ashton Kim -->
+<?xml-stylesheet type="text/css" href="style.css" ?>
+
+<songslist>
+
+  <!-- Artist, Title, Music Genre, Year-->
+  <song>
+    <title>La Vie En Rose</title>
+    <artist>Louis Armstrong</artist>
+    <year>1950</year>
+    <genre>Jazz</genre>
+    <genre>Traditional Pop</genre>
+  </song>
+
+  <song>
+    <title>What a Wonderful World</title>
+    <artist>Louis Armstrong</artist>
+    <year>1967</year>
+    <genre>Jazz</genre>
+    <genre>Traditional Pop</genre>
+  </song>
+
+  <song>
+    <title>B Minor Waltz (For Elliane)</title>
+    <artist>Bill Evans Trio</artist>
+    <year>1977</year>
+    <genre>Jazz</genre>
+  </song>
+
+  <song>
+    <title>You Must Believe in Spring</title>
+    <artist>Bill Evans Trio</artist>
+    <year>1981</year>
+    <genre>Jazz</genre>
+  </song>
+
+  <song>
+    <title>(They Long to Be) Close to You</title>
+    <artist>The Carpenters</artist>
+    <year>1970</year>
+    <genre>Pop</genre>
+  </song>
+
+  <song>
+    <title>Top of the World</title>
+    <artist>The Carpenters</artist>
+    <year>1973</year>
+    <genre>Pop</genre>
+  </song>
+
+  <song>
+    <title>Gunjyo</title>
+    <artist>Yoasobi</artist>
+    <year>2020</year>
+    <genre>J-Pop</genre>
+  </song>
+
+  <song>
+    <title>Into the Night</title>
+    <artist>Yoasobi</artist>
+    <year>2019</year>
+    <genre>J-Pop</genre>
+  </song>
+
+  <song>
+    <title>Monster</title>
+    <artist>Yoasobi</artist>
+    <year>2021</year>
+    <genre>J-Pop</genre>
+  </song>
+
+  <song>
+    <title>Windy Summer</title>
+    <artist>Anri</artist>
+    <year>1983</year>
+    <genre>J-Pop</genre>
+    <genre>City Pop</genre>
+  </song>
+
+  <song>
+    <title>Rudolph The Red-Nosed Reindeer</title>
+    <artist>Ella Fitzgerald</artist>
+    <year>1960</year>
+    <genre>Jazz</genre>
+  </song>
+
+  <song>
+    <title>And July</title>
+    <artist>Heize</artist>
+    <year>2016</year>
+    <genre>Hip-Hop</genre>
+    <genre>Rap</genre>
+    <genre>K-Pop</genre>
+  </song>
+
+</songslist>
