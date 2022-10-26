@@ -147,7 +147,6 @@
           };
 
           var to_display = $('select').val();
-
           // go to every song above and hide and show depending on its Genres
           $.get("music.json",
             function( data ) {
@@ -179,13 +178,14 @@
                     songs_filtered += song.genre[i]+" ";
                   }
                   songs_filtered += "</ul>";
+                  console.log(songs_filtered)
 
                 }
                 $('p[name="filter"]').html(songs_filtered);
+                $('p[name="lmaop"]').html(songs_filtered);
               });
 
           });
-
 
           // var all_songs = $('ul');
           // for (var i = 0; i<all_songs.length; i++)
@@ -196,6 +196,8 @@
 
         });
       </script>
+
+      <p name="lmaop"></p>
 
 
 
