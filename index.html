@@ -71,65 +71,65 @@
 
 
     <div id="filter">
+      <form id="genre">
+        <select name="genres">
+          <!-- use the script to collect the total amount of genres -->
+          <script>
+          $.get("music.json", function( data ) {
 
-      <select name="genres">
-        <!-- use the script to collect the total amount of genres -->
-        <script>
-        $.get("music.json", function( data ) {
+            // PURPOSE: This function checks a list of genres if an inputted genre
+            //          is already in the list.
+            // RETURNS: If the inputted genre is in the list of genres (ie we have another
+            //          instance of the same genre) return true. else, return false
+            function search_genre(genre, all_genres)
+            {
+              for (var i = 0; i<all_genres.length; i++)
+              {
+                if (genre == all_genres[i])
+                {
+                  // found the genre in the list of established genres
+                  return true;
+                }
 
-          // PURPOSE: This function checks a list of genres if an inputted genre
-          //          is already in the list.
-          // RETURNS: If the inputted genre is in the list of genres (ie we have another
-          //          instance of the same genre) return true. else, return false
-          function search_genre(genre, all_genres)
-          {
+              }
+              return false;
+            }
+
+            const all_genres = [];
+
+            data.forEach(function(song) {
+              // this var keeps track if the newly read genre is already in the list of genres
+              for (var i = 0; i<song.genre.length; i++)
+              {
+                if(search_genre(song.genre[i], all_genres) == false)
+                {
+                  console.log("New Genre Found: " + song.genre[i])
+                  all_genres.push(song.genre[i]);
+                }
+              }
+            });
+
+            // for all genres, list them as an option
+            var all_options = "";
             for (var i = 0; i<all_genres.length; i++)
             {
-              if (genre == all_genres[i])
-              {
-                // found the genre in the list of established genres
-                return true;
-              }
-
+              // write into select tag
+              all_options += '<option value="'+all_genres[i]+'">'+all_genres[i]+"</option>";
             }
-            return false;
-          }
 
-          const all_genres = [];
+            $('select[name="genres"]').html(all_options);
 
-          data.forEach(function(song) {
-            // this var keeps track if the newly read genre is already in the list of genres
-            for (var i = 0; i<song.genre.length; i++)
-            {
-              if(search_genre(song.genre[i], all_genres) == false)
-              {
-                console.log("New Genre Found: " + song.genre[i])
-                all_genres.push(song.genre[i]);
-              }
-            }
           });
 
-          // for all genres, list them as an option
-          var all_options = "";
-          for (var i = 0; i<all_genres.length; i++)
-          {
-            // write into select tag
-            all_options += '<option value="'+all_genres[i]+'">'+all_genres[i]+"</option>";
-          }
-
-          $('select[name="genres"]').html(all_options);
-
-
-
-        });
-
-        </script>
-      </select>
+          </script>
+        </select>
+        <input type="submit" value="Filter">
+      </form>
 
 
       <!-- Have a new script which will show only the titles that are specified by the select -->
       <script>
-        $('select[name="genres"]').change(function() {
+        $('input[type="submit"]').click(function() {
           // PURPOSE: takes a singular genre, goes through all songs displayed above
           //          and checks if the inputted genre is amongst the genres in the
           //          song.
