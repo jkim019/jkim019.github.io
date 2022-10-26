@@ -48,9 +48,9 @@
 
       $.get("music.json",
         function( data ) {
-          var pretty_str = "<ul>";
+          var pretty_str = "";
           data.forEach(function(song) {
-            pretty_str+="Title: " + song.title +"<ul>";
+            pretty_str+= song.title +"<ul>";
             pretty_str+="<li>Artist: " + song.artist;
             pretty_str+="<li>Title: " + song.year;
             // printing out all Genres
@@ -61,7 +61,6 @@
             }
             pretty_str += "</ul>";
           });
-          pretty_str += "</ul>";
           $('p[name="data_print_clean"]').html(pretty_str);
       });
 
