@@ -57,7 +57,19 @@
             pretty_str+="<li>Genre: ";
             for (var i = 0; i<song.genre.length; i++)
             {
-              pretty_str += song.genre[i] + " ";
+
+
+              pretty_str += song.genre[i];
+
+              if (i != song.genre.length)
+              {
+                //last elem
+                if (i > 0) {
+                  // multiple elements
+                  pretty_str += ", ";
+                }
+
+              }
             }
             pretty_str += "</ul>";
           });
