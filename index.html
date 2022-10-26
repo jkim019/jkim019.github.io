@@ -124,13 +124,15 @@
 
           </script>
         </select>
-        <input type="submit" value="Filter">
+        <input type="button" value="Filter">
       </form>
 
 
       <!-- Have a new script which will show only the titles that are specified by the select -->
       <script>
-        $('input[type="submit"]').click(function() {
+        $('input[type="button"]').click(function() {
+
+          console.log("button pressed")
           // PURPOSE: takes a singular genre, goes through all songs displayed above
           //          and checks if the inputted genre is amongst the genres in the
           //          song.
