@@ -166,6 +166,7 @@
                 {
                   // hide the ul associated with the song title
                   console.log(song.title+" IS NOT "+to_display)
+                  $('ul[name="'+song.title+'"]').hide();
 
                 } else {
                   console.log(song.title+" IS "+to_display+"; APPEND TO FILTERED SONGS")
@@ -173,6 +174,7 @@
                   // find ul with the name closest to song title
 
                   console.log($('ul[name="'+song.title+'"]').text());
+                  $('ul[name="'+song.title+'"]').show();
                 }
                 //   songs_filtered+= song.title +"<ul name=" + "'" + song.title + "'>";
                 //   songs_filtered+="<li>Artist: " + song.artist;
