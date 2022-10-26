@@ -147,16 +147,12 @@
           };
 
           var to_display = $('select').val();
-          console.log("We are displaying all "+to_display);
-
-          var songs_filtered = "";
-          // print out song below
-          songs_filtered+="Songs with "+to_display+" are:"
 
           // go to every song above and hide and show depending on its Genres
           $.get("music.json",
             function( data ) {
               data.forEach(function(song) {
+                var songs_filtered = "";
                 var is_genre = false;
                 for (var i = 0; i<song.genre.length; i++)
                 {
@@ -177,7 +173,6 @@
                   songs_filtered+= song.title +"<ul name=" + "'" + song.title + "'>";
                   songs_filtered+="<li>Artist: " + song.artist;
                   songs_filtered+="<li>Title: " + song.year;
-                  // printing out all Genres
                   songs_filtered+="<li>Genre: ";
                   for (var i = 0; i<song.genre.length; i++)
                   {
@@ -186,11 +181,10 @@
                   songs_filtered += "</ul>";
 
                 }
+                $('p[name="filter"]').html(songs_filtered);
               });
 
           });
-          $('p[name="filter"]').html(songs_filtered);
-
 
 
           // var all_songs = $('ul');
