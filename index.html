@@ -11,6 +11,7 @@
   <body>
     <div id="serialized">
       User UNFRIENDLY Data: (Serialized)
+      <p name="data_print"></p>
 
       <!-- <script>
         $(function(){
@@ -26,8 +27,10 @@
         $.get("music.json",
           function( data ) {
             str = JSON.stringify( data );
-            console.log(str+"<br>");
-          });
+            $('p[name="data_print"]').html(str);
+        });
+
+
       </script>
 
     </div>
