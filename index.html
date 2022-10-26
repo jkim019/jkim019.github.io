@@ -31,6 +31,36 @@
         });
 
 
+
+      </script>
+
+    </div>
+
+    <div id="user-friendly">
+      <script>
+
+      $.get("music.json",
+        function( data ) {
+          var pretty_str = "<ul>";
+          data.forEach(function(song) {
+            pretty_str+="<li>Title: " + song.title;
+            pretty_str+="<li>Artist: " + song.artist;
+            pretty_str+="<li>Title: " + song.year;
+            // printing out all Genres
+            pretty_str+="<li>Genre: ";
+            for (int i = 0; i<song.genre.length; i++)
+            {
+              pretty_str += song.genre[i] + " ";
+            }
+          });
+          pretty_str += "</ul>";
+
+
+            pretty_str += "<il>"
+          JSON.stringify( data );
+          $('p[name="data_print"]').html(str);
+      });
+
       </script>
 
     </div>
