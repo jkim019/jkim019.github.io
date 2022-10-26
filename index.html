@@ -11,7 +11,7 @@
   <body>
     <div id="serialized">
       User UNFRIENDLY Data: (Serialized)
-      <p name="data_print"></p>
+      <p name="data_print_dirty"></p>
 
       <!-- <script>
         $(function(){
@@ -27,7 +27,7 @@
         $.get("music.json",
           function( data ) {
             str = JSON.stringify( data );
-            $('p[name="data_print"]').html(str);
+            $('p[name="data_print_dirty"]').html(str);
         });
 
 
@@ -36,7 +36,14 @@
 
     </div>
 
+    <br>
+
     <div id="user-friendly">
+      User FRIENDLY Data:
+      <p name="data_print_clean"></p>
+
+
+
       <script>
 
       $.get("music.json",
@@ -54,11 +61,7 @@
             }
           });
           pretty_str += "</ul>";
-
-
-            pretty_str += "<il>"
-          JSON.stringify( data );
-          $('p[name="data_print"]').html(str);
+          $('p[name="data_print_clean"]').html(pretty_str);
       });
 
       </script>
