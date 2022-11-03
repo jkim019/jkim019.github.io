@@ -37,7 +37,8 @@
           console.log("Message RECIEVED");
           var result = req.responseText;
           console.log(result)
-          var dog_img = result.message
+          result = JSON.parse(result)
+          var dog_img = result.message;
           ('p[id="dog_pic"]').replaceWith('<img src="'+dog_img+'">')
 
         }
