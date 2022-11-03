@@ -1,206 +1,55 @@
+<!DOCTYPE HTML>
 <html>
-
   <head>
-    <meta charset="utf-8">
-    <title>JSON Test</title>
+    <title>
+
+    </title>
+    <meta charset="utf-8"/>
     <script src="jquery-3.6.1.min.js"></script>
-    <script language="javascript" src="music.json"></script>
+
+    <!-- <script>
+      //fetch
+      fetch("https://dog.ceo/api/breeds/image/random", {
+        "method":"GET",
+      })
+      .then(response => response.json())
+      .then(response=> {
+        $('p[id="dog_pic"]').replaceWith('<img src="'+response.message+'">')
+
+
+      })
+      .catch(err => {
+        console.log("ERROR: There was an error finding your api");
+      })
+    </script> -->
+
+    <script>
+      //in class AJAX pattern
+      var req = new XMLHttpRequest();
+      console.log(req);
+
+      req.open("GET","https://dog.ceo/api/breeds/image/random",true);
+      console.log("Attempting GET")
+
+      req.onreadystatechange = function() {
+        if (req.readyState == 4 && request.status ==200)
+        {
+          console.log("Message RECIEVED");
+          var result = req.responseText;
+          console.log(result)
+          var dog_img = JSON.parse(result)
+          ('p[id="dog_pic"]').replaceWith('<img src="'+dog_img+'">')
+
+        }
+
+      }
+
+    </script>
 
   </head>
 
   <body>
-    <div id="serialized">
-      User UNFRIENDLY Data: (Serialized)
-      <p name="data_print_dirty"></p>
-
-      <!-- <script>
-        $(function(){
-          var songs = [];
-
-          // upload from json to html
-          $.getJSON("music.json", function(data) {
-
-          });
-        });
-      </script> -->
-      <script>
-        $.get("music.json",
-          function( data ) {
-            str = JSON.stringify( data );
-            $('p[name="data_print_dirty"]').html(str);
-        });
-
-
-
-      </script>
-
-    </div>
-
-    <br>
-
-    <div id="user-friendly">
-      User FRIENDLY Data:
-      <p name="data_print_clean"></p>
-
-
-
-      <script>
-
-      $.get("music.json",
-        function( data ) {
-          var pretty_str = "";
-          data.forEach(function(song) {
-
-            pretty_str+= "<ul name=" + "'" + song.title + "'>"+song.title;
-            pretty_str+="<li>Artist: " + song.artist;
-            pretty_str+="<li>Title: " + song.year;
-            // printing out all Genres
-            pretty_str+="<li>Genre: ";
-            for (var i = 0; i<song.genre.length; i++)
-            {
-              pretty_str += song.genre[i]+" ";
-            }
-            pretty_str += "</ul>";
-          });
-          $('p[name="data_print_clean"]').html(pretty_str);
-      });
-
-      </script>
-
-    </div>
-
-
-    <div id="filter">
-      Try Fitlering Songs Here:
-      <form id="genre">
-        <select name="genres">
-          <!-- use the script to collect the total amount of genres -->
-          <script>
-          $.get("music.json", function( data ) {
-
-            // PURPOSE: This function checks a list of genres if an inputted genre
-            //          is already in the list.
-            // RETURNS: If the inputted genre is in the list of genres (ie we have another
-            //          instance of the same genre) return true. else, return false
-            function search_genre(genre, all_genres)
-            {
-              for (var i = 0; i<all_genres.length; i++)
-              {
-                if (genre == all_genres[i])
-                {
-                  // found the genre in the list of established genres
-                  return true;
-                }
-
-              }
-              return false;
-            }
-
-            const all_genres = [];
-
-            data.forEach(function(song) {
-              // this var keeps track if the newly read genre is already in the list of genres
-              for (var i = 0; i<song.genre.length; i++)
-              {
-                if(search_genre(song.genre[i], all_genres) == false)
-                {
-                  console.log("New Genre Found: " + song.genre[i])
-                  all_genres.push(song.genre[i]);
-                }
-              }
-            });
-
-            // for all genres, list them as an option
-            var all_options = "";
-            for (var i = 0; i<all_genres.length; i++)
-            {
-              // write into select tag
-              all_options += '<option value="'+all_genres[i]+'">'+all_genres[i]+"</option>";
-            }
-
-            $('select[name="genres"]').html(all_options);
-
-          });
-
-          </script>
-        </select>
-        <input type="button" value="Filter">
-        <br>
-        <p name="filter"></p>
-      </form>
-
-
-      <!-- Have a new script which will show only the titles that are specified by the select -->
-      <script>
-        $('input[type="button"]').click(function() {
-          // PURPOSE: takes a singular genre, goes through all songs displayed above
-          //          and checks if the inputted genre is amongst the genres in the
-          //          song.
-          // RETURNS: return true if found, false otherwise
-          function isThisGenre(this_genre,song_genre)
-          {
-            if (this_genre == song_genre)
-            {
-              return true;
-            }
-            return false;
-          };
-
-          var to_display = $('select').val();
-          // go to every song above and hide and show depending on its Genres
-          $.get("music.json",
-            function( data ) {
-              data.forEach(function(song) {
-                var songs_filtered = "";
-                var is_genre = false;
-                for (var i = 0; i<song.genre.length; i++)
-                {
-                  if (isThisGenre(to_display,song.genre[i]))
-                  {
-                    is_genre = true;
-                    break;
-                  }
-                }
-
-                if (is_genre == false)
-                {
-                  // hide the ul associated with the song title
-                  console.log(song.title+" IS NOT "+to_display)
-                  $('ul[name="'+song.title+'"]').hide();
-
-                } else {
-                  console.log(song.title+" IS "+to_display+"; APPEND TO FILTERED SONGS")
-
-                  // find ul with the name closest to song title
-
-                  console.log($('ul[name="'+song.title+'"]').text());
-                  $('ul[name="'+song.title+'"]').show();
-                }
-              });
-
-          });
-
-          // var all_songs = $('ul');
-          // for (var i = 0; i<all_songs.length; i++)
-          // {
-          //   console.log(all_songs[i])
-          // }
-          // OLD CODE - Takeaway is that we can find the songs by their UL element and hide/show them using jquery
-
-        });
-      </script>
-
-      <p name="lmaop"></p>
-
-
-
-    </div>
-
+    <p id="dog_pic">Loading...</p>
 
   </body>
-
-
-
-
-
 </html>
