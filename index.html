@@ -39,7 +39,7 @@
           console.log(result)
           result = JSON.parse(result)
           var dog_img = result.message;
-          ('p[id="dog_pic"]').replaceWith('<img src="'+dog_img+'">')
+          $('p[id="dog_pic"]').replaceWith('<img src="'+dog_img+'">')
 
         }
 
